@@ -465,7 +465,7 @@ do
 		
 		self.toggling = true
 		
-		local container = game.CoreGui["阴茎ware.cc - The Streets"].Main
+		local container = self.container.Main
 		local topbar = container.TopBar
 		
 		if self.position then
