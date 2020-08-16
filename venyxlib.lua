@@ -109,16 +109,16 @@ do
 		self.keybinds = {}
 		self.ended = {}
 		
-		input.InputBegan:Connect(function(key)
-			if self.keybinds[key.KeyCode] then
+		input.InputBegan:Connect(function(key,proc)
+			if self.keybinds[key.KeyCode] and not proc then
 				for i, bind in pairs(self.keybinds[key.KeyCode]) do
 					bind()
 				end
 			end
 		end)
 		
-		input.InputEnded:Connect(function(key)
-			if key.UserInputType == Enum.UserInputType.MouseButton1 then
+		input.InputEnded:Connect(function(key,proc)
+			if key.UserInputType == Enum.UserInputType.MouseButton1 and not proc then
 				for i, callback in pairs(self.ended) do
 					callback()
 				end
