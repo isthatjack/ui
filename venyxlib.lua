@@ -117,8 +117,8 @@ do
 			end
 		end)
 		
-		input.InputEnded:Connect(function(key,proc)
-			if key.UserInputType == Enum.UserInputType.MouseButton1 and not proc then
+		input.InputEnded:Connect(function(key)
+			if key.UserInputType == Enum.UserInputType.MouseButton1 then
 				for i, callback in pairs(self.ended) do
 					callback()
 				end
